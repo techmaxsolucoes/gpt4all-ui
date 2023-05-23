@@ -6,16 +6,16 @@ services:
     image: ghcr.io/mckaywrigley/chatbot-ui:main
     platform: linux/amd64
     ports:
-      - 3000:3000
+      - 9803:3000
     environment:
       - 'OPENAI_API_KEY=000000000000000'
-      - 'OPENAI_API_HOST=http://api:8000'
+      - 'OPENAI_API_HOST=http://api:9800'
 
   api:
     build: .
     volumes:
       - ./models:/models
     ports:
-      - 8000:8000
+      - 9800:8000
     environment:
       - MODEL=/models/7B/gpt4all-lora-quantized.ggml
